@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>treasure-chest</artifactId>
+        <groupId>com.hmh</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modules>
+
+    </modules>
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--二级父模块：基础功能-->
+    <artifactId>treasure-chest-model-basic</artifactId>
+    <name>treasure-chest-model-basic</name>
+
+</project>
