@@ -15,5 +15,4 @@
     <!--二级父模块：基础功能-->
     <artifactId>treasure-chest-model-basic</artifactId>
     <name>treasure-chest-model-basic</name>
-
 </project>
