@@ -3,17 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>treasure-chest</artifactId>
+        <artifactId>treasure-chest-framework</artifactId>
         <groupId>com.hmh</groupId>
         <version>1.0.0</version>
     </parent>
-    <!--当前POM模型的版本-->
     <modelVersion>4.0.0</modelVersion>
-    <!--二级父项目模块-framework核心框架-->
-    <artifactId>treasure-chest-framework</artifactId>
-    <packaging>pom</packaging>
-    <name>treasure-chest-framework</name>
-    <modules>
-        <module>framework-commons</module>
-    </modules>
+
+    <artifactId>framework-commons</artifactId>
+
+
 </project>
