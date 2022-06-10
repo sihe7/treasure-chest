@@ -5,7 +5,7 @@
     <parent>
         <artifactId>treasure-chest</artifactId>
         <groupId>com.hmh</groupId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
     <modules>
 

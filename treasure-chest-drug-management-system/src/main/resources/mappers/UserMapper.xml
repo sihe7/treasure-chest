@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--核心配置文件-->
+<mapper namespace="king.drug.dal.mapper.UserMapper">
+    <select id="findUser" parameterType="userReqDTO" resultType="userReqDTO">
+        Select * from user where userAcc=#{userAcc} and userPass=#{userPass}
+    </select>
+
+    <insert id="registUser" parameterType="userReqDTO">
+        INSERT INTO USER(`userName`,`userPass`,`userAcc`,`userRight`) VALUE(#{userName},#{userPass},#{userAcc},'2')
+    </insert>
+
+    <select id="getUserByAcc" parameterType="String" resultType="userReqDTO">
+        Select * from user where userAcc=#{userAcc}
+    </select>
+
+    <insert id="registBuyer" parameterType="buyerReqDTO">
+        INSERT INTO buyer(`buyerId`,`buyerName`,`buyerPhone`) VALUE(#{buyerId},#{buyerName},#{buyerPhone})
+    </insert>
+
+    <select id="getBuyerById" parameterType="int" resultType="buyerReqDTO">
+        Select * from buyer where buyerId=#{buyerId}
+    </select>
+
+    <delete id="deleteUser" parameterType="String">
+        DELETE FROM USER WHERE userAcc=#{userAcc}
+    </delete>
+
+    <update id="updateBuyer" parameterType="buyerReqDTO">
+        UPDATE buyer SET `buyerName`=#{buyerName},`buyerPhone`=#{buyerPhone} WHERE `buyerId`=#{buyerId}
+    </update>
+
+    <delete id="deleteBuyer" parameterType="int">
+        DELETE FROM buyer WHERE `buyerId`=#{buyerId}
+    </delete>
+</mapper>

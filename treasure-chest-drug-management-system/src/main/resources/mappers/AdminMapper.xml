@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--核心配置文件-->
+<mapper namespace="king.drug.dal.mapper.AdminMapper">
+    <insert id="insertMedicine" parameterType="MedicineReqDTO">
+        INSERT INTO medicine(`medId`,`medName`,`medIngredient`,`medCharacter`,`medEffect`,`medPrice`,`medStorage`,`medProDate`,`medUseDate`,`factoryId`)
+        VALUE(#{medId},#{medName},#{medIngredient},#{medCharacter},#{medEffect},#{medPrice},#{medStorage},#{medProDate},#{medUseDate},#{factoryId})
+    </insert>
+    <select id="getMedicineBymedId" parameterType="int" resultType="MedicineReqDTO">
+        Select * from medicine where medId=#{medId}
+    </select>
+    <update id="updateMedStorage" parameterType="int">
+        UPDATE medicine SET `medStorage`=#{medStorage} WHERE `medId`=#{medId}
+    </update>
+    <insert id="insertInstorage" parameterType="instorageReqDTO">
+        INSERT INTO instorage(`medId`,`inStorageNum`,`buyerId`,`inDate`)VALUE(#{medId},#{inStorageNum},#{buyerId},#{inDate})
+    </insert>
+
+    <update id="updateMedicine" parameterType="MedicineReqDTO">
+        UPDATE medicine
+        SET `medName`=#{medName},`medIngredient`=#{medIngredient},`medCharacter`=#{medCharacter},`medEffect`=#{medEffect},`medPrice`=#{medPrice},`medStorage`=#{medStorage},`medProDate`=#{medProDate},`medUseDate`=#{medUseDate},`factoryId`=#{factoryId}
+        WHERE `medId`=#{medId}
+    </update>
+
+    <delete id="deleteMedicine" parameterType="int">
+        DELETE FROM medicine WHERE medId=#{medId}
+    </delete>
+
+    <insert id="insertFactory" parameterType="factoryReqDTO">
+        INSERT INTO factory(`factoryId`,`factoryName`) VALUE (#{factoryId},#{factoryName})
+    </insert>
+
+    <select id="getFactoryByfactoryId" parameterType="int" resultType="factoryReqDTO">
+        Select * from factory where factoryId=#{factoryId}
+    </select>
+    <update id="updateFactory" parameterType="factoryReqDTO">
+        UPDATE factory
+        SET `factoryName`=#{factoryName}
+        WHERE `factoryId`=#{factoryId}
+    </update>
+
+    <delete id="deleteFactory" parameterType="int">
+        DELETE FROM factory where factoryId=#{factoryId}
+    </delete>
+</mapper>

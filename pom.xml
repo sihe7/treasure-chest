@@ -6,8 +6,13 @@
 
     <groupId>com.hmh</groupId>
     <artifactId>treasure-chest</artifactId>
+    <name>${project.artifactId}</name>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
+    <!--项目地址-->
+    <url>https://github.com/sihe7/treasure-chest</url>
+    <!--描述-->
+    <description>一套乱七八糟的仓库</description>
     <!--正式放入码云管理-->
     <modules>
         <module>treasure-chest-framework</module>
@@ -17,15 +22,11 @@
         <module>design-pattern</module>
         <module>java-basics</module>
     </modules>
-
-    <name>treasure-chest</name>
-    <url>http://www.example.com</url>
-
+    <!--由最外层做统一管理-->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!--由最外层做统一管理-->
         <!--hmh.version-->
-        <hmh.version>2.0-SNAPSHOT</hmh.version>
+        <hmh.version>1.0.1</hmh.version>
         <!--spring-cloud版本-->
         <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
         <!--spring-cloud-alibaba版本-->
@@ -72,12 +73,28 @@
         <hessian.version>4.0.7</hessian.version>
         <!--xxl-job-->
         <xxl-job-core.version>2.1.2</xxl-job-core.version>
+        <!--joda-time.version-->
+        <joda-time.version>2.9.9</joda-time.version>
+        <!--lombok.version-->
+        <lombok.version>1.18.22</lombok.version>
+        <slf4j.version>1.7.7</slf4j.version>
     </properties>
     <!--声明jar-->
+    <!--Maven中的dependencyManagement元素提供了一种管理依赖版本号的方式。
+    在dependencyManagement元素中声明所依赖的jar包的版本号等信息，
+    那么所有子项目再次引入此依赖jar包时则无需显式的列出版本号。
+    Maven会沿着父子层级向上寻找拥有dependencyManagement 元素的项目，
+    然后使用它指定的版本号。-->
     <dependencyManagement>
         <dependencies>
+            <!--本项目jar版本管理-->
+            <dependency>
+                <groupId>com.hmh</groupId>
+                <artifactId>framework-commons</artifactId>
+                <version>${hmh.version}</version>
+            </dependency>
 
-            <!---springcould主配置-->
+            <!--springcould主配置-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -274,6 +291,29 @@
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${spring-boot-starter-web.version}</version>
             </dependency>
+            <!-- joda-time时间 -->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
+            </dependency>
+            <!-- lombok -->
+            <!--产生的原因是：tomcat中也有servlet-api包，这样，发生了冲突解决方法：
+            添加<scope>provided</scope>，因为provided表明该包只在编译和测试的时候用，
+            所以，当启动tomcat的时候，就不会冲突了-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
     <build>

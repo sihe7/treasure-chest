@@ -1,0 +1,14 @@
+server:
+  port: 8084
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/medical?useSSL=true&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  type-aliases-package: king.drug.api.dtoreq,king.drug.api.dtores
+  mapper-locations: classpath:mappers/*.xml
+logging:
+  level:
+    com.jx.medical.mapper: debug

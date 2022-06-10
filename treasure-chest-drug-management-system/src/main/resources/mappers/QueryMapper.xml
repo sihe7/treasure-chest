@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--核心配置文件-->
+<mapper namespace="king.drug.dal.mapper.QueryMapper">
+    <select id="queryMedicine" resultType="medicineReqDTO">
+        Select * from medicine
+    </select>
+    <select id="queryFactory" resultType="factoryReqDTO">
+        Select * from factory
+    </select>
+    <select id="queryBuyer" resultType="buyerReqDTO">
+        Select * from buyer
+    </select>
+    <select id="getInRecord" resultType="showInRecordResDTO" parameterType="medicineTableReqDTO">
+        SELECT inId,medName,inStorageNum,inDate,buyerName
+        FROM instorage,medicine,buyer
+        <where> medicine.`medId`=instorage.`medId` AND instorage.`buyerId`=buyer.`buyerId`
+            <if test="medName!=null and medName!=''">
+                and medName  LIKE '%${medName}%'
+            </if>
+        </where>
+        Limit #{page},#{limit}
+    </select>
+    <select id="getOutRecord" resultType="showOutRecordResDTO" parameterType="medicineTableReqDTO">
+        SELECT outId,medName,outStorageNum,outDate,patientId
+        FROM outstorage,medicine
+        <where> medicine.`medId`=outstorage.`medId`
+            <if test="medName!=null and medName!=''">
+                and medName  LIKE '%${medName}%'
+            </if>
+        </where>
+        Limit #{page},#{limit}
+    </select>
+
+    <select id="getInRecordCount" parameterType="medicineTableReqDTO" resultType="int">
+        SELECT count(*)
+        FROM instorage,medicine,buyer
+        WHERE medicine.`medId`=instorage.`medId` AND instorage.`buyerId`=buyer.`buyerId` and medName  LIKE '%${medName}%'
+        Limit #{page},#{limit}
+    </select>
+    <select id="getOutRecordCount" parameterType="medicineTableReqDTO" resultType="int">
+        SELECT count(*)
+        FROM outstorage,medicine
+        WHERE medicine.`medId`=outstorage.`medId` and medName  LIKE '%${medName}%'
+    </select>
+
+
+    <select id="queryMedicineByNameCount" parameterType="medicineTableReqDTO" resultType="int">
+        SELECT count(*) FROM medicine WHERE medName LIKE '%${medName}%'
+    </select>
+    <select id="queryMedicineByName" parameterType="medicineTableReqDTO" resultType="medicineReqDTO">
+        SELECT * FROM medicine
+        <where> 1=1
+            <if test="medName!=null and medName!=''">
+                and medName  LIKE '%${medName}%'
+            </if>
+        </where>
+        Limit #{page},#{limit}
+    </select>
+
+
+
+    <select id="queryFactoryByNameCount" parameterType="medicineTableReqDTO" resultType="int">
+        SELECT count(*) FROM factory WHERE factoryName LIKE '%${factoryName}%'
+    </select>
+    <select id="queryFactoryByName" parameterType="medicineTableReqDTO" resultType="factoryReqDTO">
+        SELECT * FROM factory
+        <where> 1=1
+            <if test="factoryName!=null and factoryName!=''">
+                and factoryName  LIKE '%${factoryName}%'
+            </if>
+        </where>
+        Limit #{page},#{limit}
+    </select>
+
+    <select id="queryBuyerByNameCount" parameterType="medicineTableReqDTO" resultType="int">
+        SELECT count(*) FROM buyer WHERE buyerName LIKE '%${buyerName}%'
+    </select>
+    <select id="queryBuyerByName" parameterType="medicineTableReqDTO" resultType="buyerReqDTO">
+        SELECT * FROM buyer
+        <where> 1=1
+            <if test="buyerName!=null and buyerName!=''">
+                and buyerName  LIKE '%${buyerName}%'
+            </if>
+        </where>
+        Limit #{page},#{limit}
+    </select>
+
+    <select id="queryUserByNameCount" parameterType="medicineTableReqDTO" resultType="int">
+        SELECT count(*) FROM user WHERE userName LIKE '%${userName}%'
+    </select>
+    <select id="queryUserByName" parameterType="medicineTableReqDTO" resultType="userReqDTO">
+        SELECT * FROM user
+        <where> 1=1 and userRight=2
+            <if test="userName!=null and userName!=''">
+                and userName  LIKE '%${userName}%'
+            </if>
+        </where>
+        Limit #{page},#{limit}
+    </select>
+   
+</mapper>
