@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1j5ibmj" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.0.0">
+  <bpmn:process id="Process_0qsrs8w" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_10b7sc7</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_18msn9k">
+      <bpmn:incoming>Flow_0x1yupj</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_10b7sc7" sourceRef="StartEvent_1" targetRef="Activity_1aubtca" />
+    <bpmn:sequenceFlow id="Flow_0ycfjad" sourceRef="Activity_1aubtca" targetRef="Activity_06bgvlq" />
+    <bpmn:sequenceFlow id="Flow_0045l1j" sourceRef="Activity_06bgvlq" targetRef="Activity_0e86fvk" />
+    <bpmn:sequenceFlow id="Flow_06a3uyk" sourceRef="Activity_0e86fvk" targetRef="Activity_0ed4mps" />
+    <bpmn:sequenceFlow id="Flow_0x1yupj" sourceRef="Activity_0ed4mps" targetRef="Event_18msn9k" />
+    <bpmn:userTask id="Activity_1aubtca" name="创建出擦申请">
+      <bpmn:incoming>Flow_10b7sc7</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ycfjad</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_06bgvlq" name="部门经理审批">
+      <bpmn:incoming>Flow_0ycfjad</bpmn:incoming>
+      <bpmn:outgoing>Flow_0045l1j</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_0e86fvk" name="总经理审批">
+      <bpmn:incoming>Flow_0045l1j</bpmn:incoming>
+      <bpmn:outgoing>Flow_06a3uyk</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_0ed4mps" name="财务审批">
+      <bpmn:incoming>Flow_06a3uyk</bpmn:incoming>
+      <bpmn:outgoing>Flow_0x1yupj</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0qsrs8w">
+      <bpmndi:BPMNEdge id="Flow_10b7sc7_di" bpmnElement="Flow_10b7sc7">
+        <di:waypoint x="210" y="158" />
+        <di:waypoint x="210" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ycfjad_di" bpmnElement="Flow_0ycfjad">
+        <di:waypoint x="210" y="270" />
+        <di:waypoint x="210" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0045l1j_di" bpmnElement="Flow_0045l1j">
+        <di:waypoint x="210" y="380" />
+        <di:waypoint x="210" y="410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06a3uyk_di" bpmnElement="Flow_06a3uyk">
+        <di:waypoint x="210" y="490" />
+        <di:waypoint x="210" y="510" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0x1yupj_di" bpmnElement="Flow_0x1yupj">
+        <di:waypoint x="210" y="590" />
+        <di:waypoint x="210" y="632" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="192" y="122" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1m9fr7h_di" bpmnElement="Activity_1aubtca">
+        <dc:Bounds x="160" y="190" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1nat3rf_di" bpmnElement="Activity_06bgvlq">
+        <dc:Bounds x="160" y="300" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_07r8gfu_di" bpmnElement="Activity_0e86fvk">
+        <dc:Bounds x="160" y="410" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1a1820x_di" bpmnElement="Activity_0ed4mps">
+        <dc:Bounds x="160" y="510" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_18msn9k_di" bpmnElement="Event_18msn9k">
+        <dc:Bounds x="192" y="632" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

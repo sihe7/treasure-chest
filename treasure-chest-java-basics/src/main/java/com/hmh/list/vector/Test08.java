@@ -1,4 +1,4 @@
-package com.hmh.vector;
+package com.hmh.list.vector;
 
 import java.util.ArrayList;
 import java.util.Collections;

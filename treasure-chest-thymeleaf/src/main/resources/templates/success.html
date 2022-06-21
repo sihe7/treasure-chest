@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>template的成功</h3>
+<!-- 获取后台数据替换标签文本，不转义 -->
+<div th:text="${hello}"></div>
+<!-- 获取后台数据替换标签文本，转义 -->
+<div th:utext="${hello}"></div>
+
+<!-- 遍历users集合，生成多行 -->
+<h3 th:text="${user}" th:each="user:${users}"></h3>
+
+<!-- 遍历users集合，生成单行 -->
+<h3>
+    <span th:each="user:${users}">[[${user}]],</span>
+</h3>
+
+</body>
+</html>

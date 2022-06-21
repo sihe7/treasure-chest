@@ -32,6 +32,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
     </dependencies>
     <!--能解决@Override爆红的问题【用maven内置的tomcat配置】-->
     <build>
@@ -46,8 +50,5 @@
                 </configuration>
             </plugin>
         </plugins>
-
     </build>
-
-
 </project>

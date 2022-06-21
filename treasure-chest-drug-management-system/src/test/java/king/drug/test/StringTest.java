@@ -1,11 +1,15 @@
 package king.drug.test;
 
 
+import king.drug.common.utils.StringUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.StringTokenizer;
 
 /**
@@ -35,8 +39,11 @@ public class StringTest {
     @Test
     public void stringTest02(){
         String no = "32112";
-        String s = StringUtils.rightPad(no, 10, " ");
-        System.out.println(s+"00");
+        String s = StringUtils.rightPad(no, 10, "0");
+        System.out.println(s);
+        String no1 = "32112";
+        String s1 = StringUtils.leftPad(no1, 10, "0");
+        System.out.println(s1);
 
     }
     @Test
@@ -126,12 +133,44 @@ public class StringTest {
             //原值切割
             //aa[i] = str.substring(k, k+arr[i]);
             //去除两端空格
-            aa[i] = str.substring(k, k+arr[i]).trim();
+
+            aa[i] =repNull( str.substring(k, k+arr[i]).trim());
             k += arr[i];
         }
         for (int i = 0; i < aa.length; i++) {
             System.out.println("切割后的数组:" + aa[i]);
         }
+    }
+    public static String repNull(Object var0) {
+        return var0 == null ? "" : var0.toString().trim();
+    }
+    @Test
+    public void stringTest11(){
+        int[] arr = {2, 8};
+        String str = "2378      23 7777            和梦浩   ";
+        String[] aa = new String[arr.length];
+        List list = new ArrayList(arr.length);
+        int k = 0;
+        for (int i = 0; i < arr.length; i++) {
+            //原值切割
+            //aa[i] = str.substring(k, k+arr[i]);
+            //去除两端空格
+            aa[i] = str.substring(k, k+arr[i]).trim();
+            k += arr[i];
+        }
+
+
+        for (int i = 0; i < aa.length; i++) {
+            System.out.println("切割后的数组:" + aa[i]);
+        }
+    }
+
+    @Test
+    public void test01(){
+        String str = "123456789";
+        String newStr = str.replaceAll("^(0+)", "");
+        System.out.println(newStr);
+        System.out.println(str.substring(6, 8));
     }
     @Test
     public void stringTest10(){

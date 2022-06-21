@@ -15,9 +15,10 @@ import com.hmh.creationPattern.factory.custom.jdgc.RoujiaMoStore;
 import com.hmh.creationPattern.factory.custom.jdgc.RoujiaMoStore2;
 import com.hmh.creationPattern.factory.custom.jdgc.SimpleRouJiaMoFactroy;
 
+import com.hmh.creationPattern.factory.custom.ybjdgc.code.ShapeFactory;
+import com.hmh.creationPattern.factory.custom.ybjdgc.code.server.Shape;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
 /**
  * @program treasure-chest
  * @description 自定义工厂模式测试类
@@ -89,5 +90,14 @@ public class factoryCustomTest {
         CZKCRoujiaMoTeSeStore moTeSeStore = new CZKCRoujiaMoTeSeStore(factory1);
         CRouJiaMo ku = moTeSeStore.sellRoujiaMo("Ku");
         System.out.println(ku);
+    }
+    /**
+     * 易百工厂模式测试
+     */
+    @Test
+    public void test07(){
+        ShapeFactory shapeFactory = new ShapeFactory();
+        Shape circle = shapeFactory.getShape("CIRCLE");
+        circle.draw();
     }
 }

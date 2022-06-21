@@ -1,0 +1,17 @@
+server:
+  port: 8083  #默认端口
+  servlet:
+    context-path: /thymeleaf
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  #静态资源存放路径
+  mvc:
+    static-path-pattern: /resources/**
+  application:
+    name: treasure-chest-thymeleaf # 项目名称
+  thymeleaf:
+    model: HTML #模板模式、默认为HTML5
+    prefix: classpath:/templates/  #自定义的Thymeleaf的模板位置，jar内部以classpath:开头，外部路径使用file:开头
+    suffix: .html #模板后缀 默认为.html 自动匹配后缀
+    cache: false #cache=是否使用缓存 默认true
