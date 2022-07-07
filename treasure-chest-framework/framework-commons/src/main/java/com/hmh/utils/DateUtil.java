@@ -119,6 +119,7 @@ public class DateUtil {
      */
     public static final String START_TIME_SUFFIX = "000000";
 
+
     /**
      * 1、获取当前时间（yyyy-MM-dd HH：mm：ss）（返回Date类型）
      *

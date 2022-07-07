@@ -34,6 +34,8 @@
         <!--freemarker模板引擎模块-->
         <module>treasure-chest-freemarker</module>
         <module>treasure-chest-activiti</module>
+        <module>treasure-chest-email</module>
+        <module>treasure-chest-redis</module>
     </modules>
     <!--由最外层做统一管理-->
     <properties>

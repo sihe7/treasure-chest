@@ -1,0 +1,53 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /email
+#163邮箱配置
+#spring:
+#  mail:
+#    #设置邮件服务器主机
+#    host: smtp.163.com
+#    #端口号
+#    port: 465
+#    #用户名
+#    username: hemh213@163.com
+#    #密码或者授权码
+#    # 使用 jasypt 加密密码，使用com.xkcoding.email.PasswordTest.testGeneratePassword 生成加密密码，替换 ENC(加密密码)
+#    password: ENC(OT0qGOpXrr1Iog1W+fjOiIDCJdBjHyhy)
+#    protocol: smtp
+#    test-connection: true
+#    default-encoding: UTF-8
+#    #设置其他属性
+#    properties:
+#      #是否需要认证
+#      mail.smtp.auth: true
+#      mail.smtp.starttls.enable: true
+#      mail.smtp.starttls.required: true
+#      mail.smtp.ssl.enable: true
+#      mail.display.sendmail: spring-boot-demo
+#qq配置
+spring:
+  mail:
+    host: smtp.qq.com
+    username: 3055001765@qq.com
+    password: higgpfdjtfvcdgda
+    port: 465
+    protocol: smtp
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            enable: true
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+
+# 为 jasypt 配置解密秘钥
+jasypt:
+  encryptor:
+    password: spring-boot-demo

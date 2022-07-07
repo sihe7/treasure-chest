@@ -1,4 +1,4 @@
-package com.hmh.util;
+package com.hmh.utils;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

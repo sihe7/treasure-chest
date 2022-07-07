@@ -1,6 +1,6 @@
 package com.hmh;
 
-import com.hmh.util.SecurityUtil;
+import com.hmh.utils.SecurityUtil;
 import org.activiti.api.process.model.ProcessDefinition;
 import org.activiti.api.process.runtime.ProcessRuntime;
 import org.activiti.api.runtime.shared.query.Page;
