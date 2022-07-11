@@ -34,7 +34,7 @@ public class ExecutorPool {
          *      AbortPolicy 直接throw 一个异常，不做处理
          *      CallerRunsPolicy  如果添加线程池失败，就把任务交给主线程去执行。好比排队领妹子，你不让我排队，那我自己去找妹子.
          *      DiscardOldestPolicy  如果阻塞队列满了，就把最开始加入队列的任务移除出去。再尝试加入队列。
-         *      DiscardPolicy   不做任何处理，rejectedExecution是一个空方法
+         *      DiscardPolicy   不做任何处理，RejectedExecution是一个空方法
          */
         ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
                 2, // 核心线程2
